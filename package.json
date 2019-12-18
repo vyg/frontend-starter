@@ -1,0 +1,61 @@
+{
+  "name": "frontend-starter",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier",
+    "prettify": "prettier --write",
+    "lint": "concurrently 'yarn eslint' 'yarn stylelint'",
+    "eslint": "eslint app/build",
+    "stylelint": "stylelint app/build/scss/**/*.scss",
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@voyage.studio/eslint-config": "^0.1.1",
+    "@voyage.studio/prettier-config": "^1.0.0",
+    "@voyage.studio/stylelint-config": "^0.1.0",
+    "autoprefixer": "^9.7.3",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.0"
+  },
+  "prettier": "@voyage.studio/prettier-config",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all"
+  ]
+}

@@ -1,0 +1,3 @@
+{
+    "extends": "@voyage.studio/stylelint-config"
+}
